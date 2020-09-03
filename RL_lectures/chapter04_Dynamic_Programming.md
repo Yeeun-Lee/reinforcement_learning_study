@@ -1,8 +1,10 @@
-## Dynamic Programming(다이나믹 프로그래밍)
+# Dynamic Programming(다이나믹 프로그래밍)
 ### Contents
->[Steps for Dynamic Programming](#steps-for-dinamic-programming)\
->[Policy Evaluation](#policy-evaluation)\
->[Policy Iteration](#policy-iteration)
+>[Intro. Steps for Dynamic Programming](#steps-for-dinamic-programming)\
+>[1.Policy Iteration](#policy-iteration)
+>>[1.1 Policy Evaluation](#1.1-policy-evaluation)\
+>>[1.2 Policy Iteration](#1.2-policy-iteration)
+>
 
 다이나믹 프로그래밍에 들어가기 전에, **Planning**과 **Learning**의 차이를 알고 들어가는 것이 매우 중요합니다.
 - **Planning** : 환경의 모형을 알고 문제를 해결함
@@ -32,8 +34,10 @@ optimal policy를 구하는 것
 - input :  MDP <S, A, P, R, \gamma>
 - output : optimal value function v_*, optimal policy \pi_*
 
+## 1. Policy Iteration
+
 ---
-### Policy evaluation
+### 1.1 Policy evaluation
 prediction 문제를 푸는 것이다. prediction의 input으로 주어진 policy(\pi)에 대해서 실제 value function을 구하게 되고 여기서
 Bellman equation을 사용한다.
 > - 현재의 policy(\pi)를 사용해서 true value function을 구할 때는 one step backup을 사용한다.
@@ -62,7 +66,7 @@ Bellman equation에서 backup diagram을 사용 했을 때, 계산해서 update�
 <img src = "https://dnddnjs.gitbooks.io/rl/content/dp5.png">
 
 ---
-### Policy iteration
+### 1.2 Policy iteration
 **policy improvement** : policy에 대한 true value를 얻었을 때 policy를 update해주는 것(점점 optimal policy에 가까워짐.)
   - Greedy improvement: 다음 state 중에서 가장 높은 value function을 가진 state로 가는 것(max값을 취함.)
 <img src = "https://dnddnjs.gitbooks.io/rl/content/bd93a4fa73cacc88bc82181ff074766d.png">
@@ -70,3 +74,15 @@ Bellman equation에서 backup diagram을 사용 했을 때, 계산해서 update�
 **policy iteration** : improvement를 계속 반복하는 과정
 <img src = "https://dnddnjs.gitbooks.io/rl/content/6d484ed095cba2cd7a8edf50b7e4e17e.png">
 꼭 무한 반복할 필요는 없으며 한번 혹은 세번만에도 optimal policy를 구하기도 한다.
+
+---
+## 2. Value Iteration
+### 2.1 Value Iteration
+앞선 policy iteration과 다른 점은 expectation equation을 사용하는 것이 아닌, **Bellman optimality equation**을 사용한다는 것이다.\
+optimal values function들 간의 관계식을 iterative하게 변환해 준다.
+
+- evaluation 단계에서 optimal value만 고려하면 되기 때문에 단 한번만 진행한다.
+  - 현재 value function을 계산하고 update할 때 max를 취함으로써 greedy하게 improve하는 효과를 줌
+  - 한번의 evaluation + improvement = value iteration
+<img src = "https://dnddnjs.gitbooks.io/rl/content/674af1b62041c9bfb73361222264c073.png" width = "600">
+
