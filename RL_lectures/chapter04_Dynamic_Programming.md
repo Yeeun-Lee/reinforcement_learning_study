@@ -6,8 +6,8 @@
 >>[1.2 Policy Iteration](#1.2-policy-iteration)
 
 > [2. Value Iteration](#2.-value-iteration)\
->>[2.2 Value Iteration](#2.1-value-iteration)\
->>[2.3 Sample Backup](#2.2-sample-backup)
+>>[2.1 Value Iteration](#2.1-value-iteration)\
+>>[2.2 Sample Backup](#2.2-sample-backup)
 
 
 다이나믹 프로그래밍에 들어가기 전에, **Planning**과 **Learning**의 차이를 알고 들어가는 것이 매우 중요합니다.
