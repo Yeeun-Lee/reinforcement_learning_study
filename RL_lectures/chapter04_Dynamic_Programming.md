@@ -1,10 +1,14 @@
 # Dynamic Programming(다이나믹 프로그래밍)
 ### Contents
 >[Intro. Steps for Dynamic Programming](#steps-for-dinamic-programming)\
->[1.Policy Iteration](#policy-iteration)
+>[1.Policy Iteration](#1.-policy-iteration)
 >>[1.1 Policy Evaluation](#1.1-policy-evaluation)\
 >>[1.2 Policy Iteration](#1.2-policy-iteration)
-> 
+
+> [2. Value Iteration](#2.-value-iteration)\
+>>[2.2 Value Iteration](#2.1-value-iteration)\
+>>[2.3 Sample Backup](#2.2-sample-backup)
+
 
 다이나믹 프로그래밍에 들어가기 전에, **Planning**과 **Learning**의 차이를 알고 들어가는 것이 매우 중요합니다.
 - **Planning** : 환경의 모형을 알고 문제를 해결함
@@ -96,4 +100,11 @@ optimal values function들 간의 관계식을 iterative하게 변환해 준다.
 
 <i>이 때 등장하는 개념이 바로 sample backup이다.</i>
 
-- 모든 가능한 successor state/action을 고려하지 않고, 샘플링을 통해 한 길만 
+- 모든 가능한 successor state/action을 고려하지 않고, 샘플링을 통해 한 길만 가보고 그 정보를 토대로 value function을 업데이터 함.
+- 계산이 효율적일 뿐만 아니라 model-free가 가능함.
+
+:question: **model-free**
+DP의 방법대로 optimal 해를 찾으려면 매 iteration마다 reward transition matrix를 알아야 함.
+하지만 sample backup의 경우 <S, A, R, S'>을 학습시켜서 나온 reward와 sample transition으로 그 둘을 대체하게 됨.
+
+DP를 sampling을 통해 푸는 것 부터 reinforcement learning 의 시작이 됨
