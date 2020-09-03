@@ -4,7 +4,7 @@
 >[1.Policy Iteration](#policy-iteration)
 >>[1.1 Policy Evaluation](#1.1-policy-evaluation)\
 >>[1.2 Policy Iteration](#1.2-policy-iteration)
->
+> 
 
 다이나믹 프로그래밍에 들어가기 전에, **Planning**과 **Learning**의 차이를 알고 들어가는 것이 매우 중요합니다.
 - **Planning** : 환경의 모형을 알고 문제를 해결함
@@ -86,3 +86,14 @@ optimal values function들 간의 관계식을 iterative하게 변환해 준다.
   - 한번의 evaluation + improvement = value iteration
 <img src = "https://dnddnjs.gitbooks.io/rl/content/674af1b62041c9bfb73361222264c073.png" width = "600">
 
+### 2.2 Sample Backup
+:bulb: **remark**
+
+- DP는 MDP에 대한 정보를 다 가지고 있어야 optimal policy를 구할 수 있다.
+- DP는 full-width backup을 사용하고 있어 한번의 backup에도 많은 연산량을 요구한다.
+  - 한 번 update할 때 가능한 모든 successor state의 value function을 통해 update하는 방법
+- :star: state의 숫자가 늘어날수록 계산량이 계산량이 기하급수적으로 증가하여 MDP가 매우 크거나 MDP에 대해서 다 알지 못할 경우 DP를 적용시킬 수 없다. 
+
+<i>이 때 등장하는 개념이 바로 sample backup이다.</i>
+
+- 모든 가능한 successor state/action을 고려하지 않고, 샘플링을 통해 한 길만 
