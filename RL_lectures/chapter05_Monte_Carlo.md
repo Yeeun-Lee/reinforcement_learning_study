@@ -1,11 +1,20 @@
 # Monte Carlo Learning
 
+## Contents
+> [1. Monte Carlo Prediction](#1.-monte-carlo-prediction)
+>>[1.1 Monte Carlo](1.1-monte-carlo)\
+>>[1.2 First visit vs every visit](#1.2-first-visit-mc-vs-every-visit-mc)\
+>>[1.3 Incremental Mean](#1.3-incremental-mean)\
+>>[1.4 Backup Diagram](#1.4-backup-diagram)
+
+>[2. Monte Carlo Control](#2.-modnte-carlo-control)[
+>>[2.1 Monte Carlo Policy Iteration](#2.1-monte-carlo-policy-iteration)\
+>>[2.2 Monte Carlo Control](#2.2-monte-carlo-control)
+
 
 ## 1. Monte Carlo Prediction
 :bulb: model free prediction
-현재의 policy를 바탕으로 움직이면서 sampling을 통해 value function을 update하는 것.(만약 policy update까지 이루어 지면 model free control이라 한다)
-### Contents
-> 
+현재의 policy를 바탕으로 움직이면서 sampling을 통해 value function을 update하는 것.(만약 policy update까지 이루어 지면 model free control이라 한다) 
 
 #### sampling을 통해 학습하는 model free 방법
 1) Monte-Carlo : episode마다 updaate
@@ -45,7 +54,7 @@ MC에서 사용하는 평균은 기존에 흔히 사용하는 총합/갯수 가 
 **Why**:question:
 강화학습은 stationary problem이 아니라서 매 episode마다 새로운 policy를 사용한다(non-stationary). 
 
-### 1.5 Backup Diagram
+### 1.4 Backup Diagram
 
 MC의 backup과정
 <img src="https://dnddnjs.gitbooks.io/rl/content/MC5.png">
@@ -74,5 +83,22 @@ Monte-Carlo Policy Iteration의 문제점
 <img src="https://dnddnjs.gitbooks.io/rl/content/MC10.png">
 
 (2) Exploration\
+policy improve를 greedy하게 할 경우, 현재 상황에서 optimum value에서 멈춰버릴 수 있다. 충분한 exploration이 이루어 지지 않아 global optimum에 가지 못할 수 있음
 
+> 대안으로 일정 확률로 현재 상태에서 가장 높은 가치를 가지지 않은 다른 action을 해주도록 한다.(epsilon)
+>- epsilon greedy policy improvement로 해결됨
+
+(3) Policy Iteration\
+monte carlo에서도 마찬가지로 evaluation과정을 줄임으로서 policy iteration에서 control을 할 수 있다.
+
+### 2.3 FLIE
+Greedy in the Limit with Infinite Exploration
+> 학습을 해나감에 따라 충분한 탐험을 했다면 greedy policy에 숢하는 것을 의미함.
+
+:small_red_triangle: epsilon greedy policy로서는 greedy하게 하나의 action만 선택하지 않음. :arrow_right: GLIE하지 않다
+- 보통 learning을 통해 배우려는 optimal policy는 greedy policy
+- exploration문제 따문에 사용하는 epsilon greedy에서 epsilon이 시간에 따라 0으로 수렴하게 되면 epsilon greedy또한 GLIE가 될 수 있다.
+- 후에는 이러한 문제를 해결하기 위해 off-policy control로서 Q-learning을 사용한다.
+
+<img src = "https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fea8Z2k%2FbtqBS7hHKNG%2F0S0SGaZU1hQVnF7KnbXSqk%2Fimg.png">
 
