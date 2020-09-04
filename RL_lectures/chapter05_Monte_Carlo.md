@@ -7,7 +7,7 @@
 >>[1.3 Incremental Mean](#1.3-incremental-mean)\
 >>[1.4 Backup Diagram](#1.4-backup-diagram)
 
->[2. Monte Carlo Control](#2.-modnte-carlo-control)[
+>[2. Monte Carlo Control](#2.-modnte-carlo-control)
 >>[2.1 Monte Carlo Policy Iteration](#2.1-monte-carlo-policy-iteration)\
 >>[2.2 Monte Carlo Control](#2.2-monte-carlo-control)
 
