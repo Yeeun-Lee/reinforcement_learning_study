@@ -1,4 +1,6 @@
 ## YeeunLee - Reinforcement Learning
+sogang university, data science academic group, Parrot\
+> studying Reinforcement Learning based on blog(https://dnddnjs.gitbooks.io/rl/content)
 
 ### contents
 > [Chapter 01 Introduction](RL_lectures/chapter01_Introduction.md)\
